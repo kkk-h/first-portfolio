@@ -1,101 +1,195 @@
-    
-    document.addEventListener("DOMContentLoaded", function () {
-      let index = 0;
-      const slides = document.querySelectorAll(".slide");
-      const totalSlides = slides.length;
-      const slider = document.querySelector(".slider");
+document.addEventListener("DOMContentLoaded", function () {
+  // === 공통 유틸 ===
+  function safeQuery(selector) {
+    return document.querySelector(selector);
+  }
 
-      function moveSlide(n) {
-        index = (index + n + totalSlides) % totalSlides;
-        slider.style.transform = `translateX(${-index * 100}%)`;
-      }
+  function safeQueryAll(selector) {
+    return document.querySelectorAll(selector);
+  }
 
-      document.querySelector(".prev").addEventListener("click", () => moveSlide(-1));
-      document.querySelector(".next").addEventListener("click", () => moveSlide(1));
+  // === 1. Main 슬라이더 ===
+  (function initMainSlider() {
+    let index = 0;
+    const slides = safeQueryAll(".slide");
+    const total = slides.length;
+    const slider = safeQuery(".slider");
 
-      setInterval(() => moveSlide(1), 3000);
-      
-    });
+    if (!slider || total === 0) return;
 
-
-
-
-    //리뷰 슬라이더
-
-    let currentIndex = 0; // 현재 활성화된 인덱스
-    const totalSlides = document.querySelectorAll(".review-slide").length;
-
-    function moveReview(index) {
-      currentIndex = index;
-      updateReview();
+    function move(n) {
+      index = (index + n + total) % total;
+      slider.style.transform = `translateX(-${index * 33.3333}%)`;
     }
 
-    function updateReview() {
-      // 이미지 슬라이더 이동
-      const slider = document.querySelector(".review-slider");
-      slider.style.transform = `translateX(-${currentIndex * 33.3333}%)`;
+    safeQuery(".main-prev")?.addEventListener("click", () => move(-1));
+    safeQuery(".main-next")?.addEventListener("click", () => move(1));
+    setInterval(() => move(1), 3000);
+  })();
 
-      // 리뷰 변경
-      document.querySelectorAll(".review-item").forEach((item, idx) => {
-        item.style.display = idx === currentIndex ? "block" : "none";
+  // === 2. MD's Pick 슬라이더 ===
+  (function initMdSlider() {
+    const slider = safeQuery('.md-slider');
+    const slides = safeQueryAll('.md-slide');
+    const prevBtn = safeQuery('.md-prev');
+    const nextBtn = safeQuery('.md-next');
+
+    if (!slider || slides.length === 0) return;
+
+    let index = 0;
+
+    function showSlide(i) {
+      slider.style.transform = `translateX(-${i * 25}%)`;
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+
+    function prevSlide() {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    }
+
+    nextBtn?.addEventListener('click', nextSlide);
+    prevBtn?.addEventListener('click', prevSlide);
+
+    setInterval(nextSlide, 4000);
+  })();
+
+  // === 3. Event 슬라이더 ===
+  (function initEventSlider() {
+    const track = safeQuery('.carousel-track');
+    const nextBtn = safeQuery('.event-next');
+    const prevBtn = safeQuery('.event-prev');
+
+    if (!track || track.children.length < 1) return;
+
+    let eventHandler = true;
+
+    // 클론 슬라이드 추가 (한 번만 실행)
+    if (!track.querySelector('.cloned')) {
+      const cloneFirst = track.firstElementChild.cloneNode(true);
+      const cloneLast = track.lastElementChild.cloneNode(true);
+      cloneFirst.classList.add('cloned');
+      cloneLast.classList.add('cloned');
+      track.insertBefore(cloneLast, track.firstElementChild);
+      track.appendChild(cloneFirst);
+    }
+
+    track.children[1]?.classList.add('current-slide');
+    const slideWidth = track.children[1].getBoundingClientRect().width;
+    track.style.transform = `translateX(-${slideWidth}px)`;
+
+    function moveSlide(direction) {
+      if (!eventHandler) return;
+      eventHandler = false;
+
+      const delta = direction === 'next' ? -2 : 0;
+      track.style.transition = 'transform 0.5s ease-out';
+      track.style.transform = `translateX(-${slideWidth * Math.abs(delta)}px)`;
+
+      setTimeout(() => {
+        track.style.transition = '';
+        track.style.transform = `translateX(-${slideWidth}px)`;
+
+        if (direction === 'next') {
+          const first = track.firstElementChild;
+          track.appendChild(first);
+        } else {
+          const last = track.lastElementChild;
+          track.insertBefore(last, track.firstElementChild);
+        }
+
+        safeQueryAll('.carousel-slide').forEach(slide => slide.classList.remove('current-slide'));
+        track.children[1]?.classList.add('current-slide');
+        eventHandler = true;
+      }, 500);
+    }
+
+    nextBtn?.addEventListener('click', () => moveSlide('next'));
+    prevBtn?.addEventListener('click', () => moveSlide('prev'));
+  })();
+
+  let current = 0;
+  // === 4. Review 슬라이더 ===
+  (function initReviewSlider() {
+    const totalSlides = safeQueryAll(".review-slide").length;
+    const slider = safeQuery(".review-slider");
+
+    if (!slider || totalSlides === 0) return;
+
+    function update() {
+      slider.style.transform = `translateX(-${current * 33.3333}%)`;
+
+      safeQueryAll(".review-item").forEach((item, idx) => {
+        item.classList.toggle("active", idx === current);
       });
 
-
-      document.querySelectorAll(".review-hashtag").forEach((tag, idx) => {
-        tag.style.display = idx === currentIndex ? "inline-block" : "none";
+      safeQueryAll(".review-hashtag").forEach((tag, idx) => {
+        tag.classList.toggle("active", idx === current);
       });
 
-      // 버튼 활성화 표시
-      document.querySelectorAll(".review-buttons button").forEach((btn, idx) => {
-        btn.classList.toggle("active", idx === currentIndex);
+      safeQueryAll(".review-buttons button").forEach((btn, idx) => {
+        btn.classList.toggle("active", idx === current);
       });
     }
 
     setInterval(() => {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateReview();
+      current = (current + 1) % totalSlides;
+      update();
     }, 3000);
 
+    update();
+  })();
 
-    updateReview();
-
-
-// cusor_effect선택
-    const curserEffect = document.querySelector(".cursor_effect")
-
-    //문서내에서 마우스무브 이벤트 생성
-    document.documentElement.addEventListener("mousemove", (e) => {
-      //각 변수에 스크롤 이동값을 제외한 마우스 x,y축 위치값 할당
-      let posX = e.clientX;
-      let posY = e.clientY;
-
-      //cursorEffect요소의 transform:translate속성값으로 마우스 위치값 대입
-      curserEffect.style.transform = `translate(${posX}px, ${posY}px)`;
-    })
-
-    //a요소에 마우스를 올리면 커서 이펙트가 커지는 효과
-    //모든 a요소를 선택
-    const anchors = document.querySelectorAll("a");
-
-    //a요소에 마우스를 올리면 cursorEffect요소에 on클래스를 추가
-    anchors.forEach(anchors => anchors.addEventListener("mouseover",() => {
-      curserEffect.classList.add("on")
-    }))
-
-    //a요소에 마우스가 떠나면 cursorEffect요소에 on클래스를 제거
-    anchors.forEach(anchors => anchors.addEventListener("mouseout",() => {
-      curserEffect.classList.remove("on")
-    }))
   
-    //마우스를 클릭했을때 커서 이펙트에 적용할 효과(클릭하면 커서이펙트가 작아지는 효과)
-    const cursorIcon = document.querySelector(".cursor_icon")
-    
-    //마우스 버튼을 누르고 있을떄 cursor_icon에 active클래스 추가
-    document.documentElement.addEventListener("mousedown",() => {
-      cursorIcon.classList.add("active");//커서의 크기가 작아짐
-    })
 
-    //마우스 버튼을 누르고 땟을때 cursor_icon에 active클래스 추가
-    document.documentElement.addEventListener("mouseup",() => {
-      cursorIcon.classList.remove("active");//커서의 크기를 원래대로
-    })
+  // === 5. Cursor Effect ===
+  (function initCursorEffect() {
+    const cursor = safeQuery(".cursor_effect");
+    const cursorIcon = safeQuery(".cursor_icon");
+
+    if (!cursor) return;
+
+    document.documentElement.addEventListener("mousemove", (e) => {
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+
+    safeQueryAll("a").forEach(anchor => {
+      anchor.addEventListener("mouseover", () => cursor.classList.add("on"));
+      anchor.addEventListener("mouseout", () => cursor.classList.remove("on"));
+    });
+
+    document.documentElement.addEventListener("mousedown", () => {
+      cursorIcon?.classList.add("active");
+    });
+
+    document.documentElement.addEventListener("mouseup", () => {
+      cursorIcon?.classList.remove("active");
+    });
+  })();
+});
+
+function moveReview(n) {
+  current = n;
+  const totalSlides = document.querySelectorAll(".review-slide").length;
+  const slider = document.querySelector(".review-slider");
+
+  if (!slider || totalSlides === 0) return;
+
+  slider.style.transform = `translateX(-${current * 33.3333}%)`;
+
+  document.querySelectorAll(".review-item").forEach((item, idx) => {
+    item.classList.toggle("active", idx === current);
+  });
+
+  document.querySelectorAll(".review-hashtag").forEach((tag, idx) => {
+    tag.classList.toggle("active", idx === current);
+  });
+
+  document.querySelectorAll(".review-buttons button").forEach((btn, idx) => {
+    btn.classList.toggle("active", idx === current);
+  });
+}
