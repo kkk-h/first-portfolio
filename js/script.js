@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
     update();
   })();
 
-  
+
 
   // === 5. Cursor Effect ===
   (function initCursorEffect() {
@@ -193,3 +193,54 @@ function moveReview(n) {
     btn.classList.toggle("active", idx === current);
   });
 }
+// === 6. 상품 목록 가져오기(각카테고리) ===
+window.addEventListener('load', function () {
+  // 상품 목록을 가져오기
+  const productList = document.querySelectorAll('.product-item');
+
+  // 상품 개수 계산
+  const productCount = productList.length;
+
+  // 상품 개수를 표시
+  const productCountElement = document.getElementById('product-count');
+  productCountElement.textContent = productCount;
+});
+
+/*9개 이상되면 2페이지 넘어감*/
+const itemsPerPage = 9;
+let currentPage = 1;
+
+const allItems = Array.from(document.querySelectorAll('.product-item'));
+const totalProducts = allItems.length;
+const totalPages = Math.ceil(totalProducts / itemsPerPage);
+
+// 총 상품 수 표시
+document.getElementById('product-count').textContent = totalProducts;
+
+function showPage(page) {
+  currentPage = page;
+  const start = (page - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+
+  allItems.forEach((item, index) => {
+    item.style.display = (index >= start && index < end) ? 'block' : 'none';
+  });
+
+  updatePagination();
+}
+
+function updatePagination() {
+  const pagination = document.getElementById('pagination');
+  pagination.innerHTML = '';
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    btn.classList.toggle('active', i === currentPage);
+    btn.addEventListener('click', () => showPage(i));
+    pagination.appendChild(btn);
+  }
+}
+
+// 첫 페이지 렌더
+showPage(1);

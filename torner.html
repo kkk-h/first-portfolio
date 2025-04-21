@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강하나 포트폴리오</title>
+  <link rel="stylesheet" href="/css/torner.css"> <!-- torner 전용 -->
+  <script src="https://kit.fontawesome.com/6b628def30.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+
+
+  <style>
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+      font-weight: 800;
+      font-style: normal;
+    }
+  </style>
+
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <!-- cursor effect -->
+  <div class="cursor_effect">
+    <div class="cursor_wrap">
+      <div class="cursor_icon"></div>
+    </div>
+  </div>
+  <!-- 헤더 & 네비게이션 -->
+  <div class="header">
+    <div class="container">
+      <nav>
+        <ul>
+          <li class="has-submenu">
+            <a href="#">PRODUCT</a>
+            <ul class="submenu">
+              <li class="submenu-title"><strong>PRODUCT</strong></li>
+              <div class="sub-category">
+                <a class="subTitle" href="#">유형별</a>
+                <ul>
+                  <li><a href="torner.html">토너·로션</a></li>
+                  <li><a href="serum.html">앰플·세럼</a></li>
+                  <li><a href="#">크림</a></li>
+                  <li><a href="#">클렌징·팩</a></li>
+                  <li><a href="#">선·베이스</a></li>
+                  <li><a href="#">세트</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-category">
+                <a class="subTitle" href="#">라인별</a>
+                <ul>
+                  <li><a href="#">톤업</a></li>
+                  <li><a href="#">하이드라</a></li>
+                  <li><a href="#">라이스</a></li>
+                  <li><a href="#">콜라겐</a></li>
+                  <li><a href="#">PH캄</a></li>
+                  <li><a href="#">더마틱 시카</a></li>
+                  <li><a href="#">미라클 화이트</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-category">
+                <a class="subTitle" href="#">피부 고민별</a>
+                <ul>
+                  <li><a href="#">수분·보습</a></li>
+                  <li><a href="#">미백</a></li>
+                  <li><a href="#">탄력</a></li>
+                  <li><a href="#">민감·진정</a></li>
+                  <li><a href="#">각질·모공</a></li>
+                  <li><a href="#">트러블</a></li>
+
+                </ul>
+          </li>
+        </ul>
+        <li><a href="#">EVENT</a></li>
+        <li><a href="#">BEST</a></li>
+        <li><a href="#">BRAND</a></li>
+        <li><a href="#">REVIEW</a></li>
+        <li><a href="#">CS</a></li>
+
+      </nav>
+      <!-- 서브메뉴가 포함된 PRODUCT 닫힘 -->
+      <div class="logo"><a href="index.html"><img src="./ima/one_logo-g.png"></a></div>
+      <!-- 아이콘 및 1초 회원가입 버튼 -->
+      <div class="header-icons">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-user user-icon"></i>
+        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-globe"></i>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 헤더 밑 카테고리 -->
+  <div class="cateMenuWrap">
+    <ul class="cate-list">
+      <!-- 전제품 (hover 없음) -->
+      <li class="cate-item hover-item">
+        <div class="img-box">
+          <img src="ima/cate01.jpg" class="static-img">
+          <img src="./ima/cate01_hover.png" class="hover-img">
+        </div>
+        <p>전 제품</p>
+      </li>
+
+      <!-- 토너·로션 -->
+      <li class="cate-item hover-item toner-hover">
+        <div class="img-box">
+          <a href="torner.html"><img src="ima/cate02.jpg" class="static-img">
+          <img
+            src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2NmbnpvZGVhdHNvdnRud3Z5dGlzZmVlcGtqa2dkNDZiNGNlZWpvZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6qpEnzfabRH9SSPV4s/giphy.gif"
+            class="hover-img"></a>
+        </div>
+        <p>토너·로션</p>
+      </li>
+
+
+      <!-- 앰플·세럼 -->
+      <li class="cate-item hover-item serum-hover">
+        <div class="img-box">
+          <a href="serum.html"><img src="ima/cate03.jpg" class="static-img">
+          <img
+            src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWhidnFnaDhraHFsMnpjczlyeno0ankydW55M2Z5a3JrZDJ3M2VpayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BkOfIlKyQq2FdWE/giphy.gif"
+            class="hover-img"></a>
+        </div>
+        <p>앰플·세럼</p>
+      </li>
+
+      <!-- 크림 -->
+      <li class="cate-item hover-item">
+        <div class="img-box">
+          <img src="ima/cate04.jpg" class="static-img">
+          <img
+            src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGJkdHE2Y2xwYnFsanBxa3FuNjlwbXQ3a3ViMDI3NzNrOWRscnRieSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0NwQiTooHUjYZXtm/giphy.gif"
+            class="hover-img">
+        </div>
+        <p>크림</p>
+      </li>
+
+      <!-- 클렌징·팩 -->
+      <li class="cate-item hover-item">
+        <div class="img-box">
+          <img src="ima/cate05.jpg" class="static-img">
+          <img
+            src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXUwNzdoaHNsc3d0aWxmc3RkcHVmYjdmYWtoM2ZrY2sxMzlia3kzMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vXA1NdXCWBKcBoU79j/giphy.gif"
+            class="hover-img">
+        </div>
+        <p>클렌징·팩</p>
+      </li>
+
+      <!-- 선 베이스 -->
+      <li class="cate-item hover-item">
+        <div class="img-box">
+          <img src="ima/cate06.jpg" class="static-img">
+          <img
+            src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXNya2R3MG90NHR4YmM3dmE2NHNoczFzbnozNGN5bWp4NnNrendyaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/if8vq2HZycsjaobHSW/giphy.gif"
+            class="hover-img">
+        </div>
+        <p>선 베이스</p>
+      </li>
+
+      <!-- 세트 상품  -->
+      <li class="cate-item hover-item">
+        <div class="img-box">
+          <img src="ima/cate07.jpg" class="static-img">
+          <img src="ima/cate06_hover.png" class="hover-img">
+        </div>
+        <p>세트 상품</p>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Menu 카테고리 섹션 -->
+  <div class="menu-container">
+    <!-- 라인별 -->
+    <div class="menu-row">
+      <div class="menu-title">라인별</div>
+      <ul class="menu-list">
+        <li>톤업</li>
+        <li>하이드라</li>
+        <li>라이스</li>
+        <li>콜라겐</li>
+        <li>파인</li>
+        <li>PH캄</li>
+        <li>더마틱 시카</li>
+        <li>미라클화이트</li>
+      </ul>
+    </div>
+
+    <!-- 피부고민별 -->
+    <div class="menu-row">
+      <div class="menu-title">피부고민별</div>
+      <ul class="menu-list">
+        <li>수분·보습</li>
+        <li>미백</li>
+        <li>탄력</li>
+        <li>민감·진정</li>
+        <li>각질·모공</li>
+        <li>트러블</li>
+      </ul>
+    </div>
+  </div>
+
+  <!--product list-->
+  
+
+  <div class="product-wrapper">
+    <p id="total-products">총 <span id="product-count">0</span>개의 상품</p>
+    
+    
+    <ul class="product-list">
+
+      <!-- 상품 카드 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/lotion01.png" alt="하이드라 앰플 토너 나노 플러스">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">하이드라 앰플 토너 나노 플러스</div>
+          <div class="item-desc">촉촉 물터지는 수분감, 나노 수분 앰플 토너</div>
+          <div class="item-price">
+            <span class="discount">20%</span> 22,400원 <s>28,000원</s>
+          </div>
+        </div>
+      </li>
+
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/lotion02.png" alt="더마틱 시카 토너">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">더마틱 시카 토너</div>
+          <div class="item-desc">민감 피부 진정 토너</div>
+          <div class="item-price">
+            <span class="discount">30%</span> 19,600원 <s>28,000원</s>
+          </div>
+        </div>
+      </li>
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/lotion03.png" alt="비건 하이드라 앰플 토너">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">비건 하이드라 앰플 토너</div>
+          <div class="item-desc">흡수빠른 비건 하이드라 수분토너</div>
+          <div class="item-price">
+            <span class="discount">20%</span> 20,800원 <s>26,000원</s>
+          </div>
+        </div>
+      </li>
+
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/lotion04.png" alt="PH 캄 시카 토너패드(70매)">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">PH 캄 시카 토너패드(70매)</div>
+          <div class="item-desc">저자극 약산성 진정패드</div>
+          <div class="item-price">
+            <span class="discount">20%</span> 19,200원 <s>24,000원</s>
+          </div>
+        </div>
+      </li>
+
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/lotion05.png" alt="파인 트리트먼트 스킨">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">파인 트리트먼트 스킨</div>
+          <div class="item-desc">단 4주, 아기모공 파인샷 모공스킨</div>
+          <div class="item-price">
+            <span class="discount">30%</span> 17,500원 <s>25,000원</s>
+          </div>
+        </div>
+      </li>
+
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/lotion06.png" alt="라이스 72 토너">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">라이스 72 토너</div>
+          <div class="item-desc">쌀겨수 함유 라이스 미백 토너</div>
+          <div class="item-price">
+            <span class="discount">20%</span> 15,600원 <s>19,500원</s>
+          </div>
+        </div>
+      </li>
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/lotion07.png" alt="하이드라 앰플 토너">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">하이드라 앰플 토너</div>
+          <div class="item-desc">언제 어디서든 촉촉보습 시작!</div>
+          <div class="item-price">
+            <span class="discount">30%</span> 18,200원 <s>26,000원</s>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="pagination" id="pagination"></div>
+  </div>
+  
+  <!-- 곡선용 wrap -->
+  <div class="footer-curve"></div>
+  <!--footer섹션-->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="./ima/one_logo.png" alt="logo">
+      </div>
+      <div class="footer-info">
+        <p class="customer-service">고객센터 <br><br><span class="big-number">070-0000-0000</span>
+        </p>
+        <p style="font-size: 12px; line-height: 20px; color: gray;">평일 AM 10:00 ~ PM 17:00 (점심 11:50 ~ 13:00) <br> 주말 및
+          공휴일 휴무</p>
+      </div>
+      <div class="footer-nav">
+        <strong class="title">주문 및 문의</strong>
+        <ul class="nav-list">
+          <li><a href="#">주문 및 문의</a></li>
+          <li><a href="#">주문조회</a></li>
+          <li><a href="#">문의하기</a></li>
+          <li><a href="#">자주 묻는 질문</a></li>
+          <li><a href="#">배송/교환/환불 안내</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <strong class="title">사이트안내</strong>
+        <ul class="nav-list">
+          <li><a href="#">이용약관</a></li>
+          <li><a href="#">개인 정보 처리 방침</a></li>
+          <li><a href="#">자주 묻는 질문</a></li>
+        </ul>
+      </div>
+      <div class="social-media">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </div>
+
+
+    <div class="footer-bottom">
+      <span style="">상호 : (주)one</span>
+      <span style="">대표 : 강하나</span>
+      <span style="">주소 : 경기 성남시 중원구 광명로 4 5층</span>
+      <span style="">사업자 번호 : 220-00-00000</span>
+      <span style="">통신판매신고 : 2025-경기성남-3333</span>
+      <span style="">홍보 및 제휴문의 one6421@hanmail.net </span>
+
+    </div>
+    <p class="copy">&copy; 2025 one. all rights reserved. Design by <span class="copy-name">강하나</span></p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>

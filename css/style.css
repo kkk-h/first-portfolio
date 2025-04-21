@@ -595,6 +595,7 @@ nav>ul>li>a:hover {
   grid-template-columns: 1fr 1fr;
   gap: 20px; 
   
+  
 }
 .md-product li {
   position: relative;
@@ -642,17 +643,17 @@ nav>ul>li>a:hover {
 .md-list::after {
   content: '';
   position: absolute;
-  bottom: 170px;  
+  top: 320px; 
   left: 50%;
   transform: translateX(-50%);
   width: 65%;  
   height: 10px;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 50%;
-  opacity: 0; 
+  opacity: 1; 
   filter: blur(3px); 
   transition: opacity 0.3s ease;
-  z-index: 0;
+  z-index: 999;
 }
 
 /* 그림자hover */
