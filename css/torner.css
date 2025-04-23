@@ -179,7 +179,56 @@ nav>ul>li>a:hover {
 .user-icon {
   position: relative;
 }
+/*1초회원가입 애니메이션*/
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
 
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.user-icon {
+  position: relative;
+}
+
+.signup-btn {
+  position: absolute;
+  top: 100%;
+  left: -8%;
+  margin-top: 18px;
+  transform: translateX(-50%);
+  background: #89C1EB;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 15px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  width: auto;
+  text-align: center;
+  animation: floatUpDown 1s ease-in-out infinite;
+}
+
+
+/* 말풍선 아래 삼각형 */
+.signup-btn::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 49%;
+  transform: translateX(-50%);
+  border-width: 0 5px 8px 5px;
+  border-style: solid;
+  border-color: transparent transparent #89C1EB transparent;
+}
 
 
 

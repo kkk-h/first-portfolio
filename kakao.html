@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카카오로그인</title>
+  <style>
+    body {
+      width: 100%;
+      min-height: 1440px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .login-container {
+      display: flex;
+      flex-direction: column;   
+      justify-content: center;    
+      align-items: center;     
+      height: 100vh;     
+      gap: 20px;     
+    }
+  </style>
+</head>
+
+<body>
+  <!-- kakao SDK코드 -->
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js"
+    integrity="sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka"
+    crossorigin="anonymous"></script>
+
+  <script>
+    //사용하려는 앱의 javascript키 입력
+    Kakao.init("7e4755e07a170ecbbbb098a028fd315c")
+  </script>
+
+  <!-- 로그인버튼 -->
+  <!-- 로그인 버튼 감싸는 컨테이너 -->
+  <div class="login-container">
+    <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+      <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222" alt="카카오 로그인 버튼" />
+    </a>
+  
+
+  <!-- URL파라미터로 전달받은 인가코드를 출력할 요소  -->
+  <p id="token-result"></p>
+  <!-- 사용자 정보를 호출할 버튼 -->
+  <button class="api-btn" style="visibility: hidden;">API 호출하기</button>
+  <button class="logout-btn" onclick="kakaoLogout()">로그아웃</button>
+</div>
+  <script>
+    //로그인 버튼 클릭시 호출
+    function loginWithKakao() {
+      Kakao.Auth.authorize({
+        redirectUri: "http://127.0.0.1:5500/kakao.html",//인증하고 code를 받을 주소
+        prompt: 'login', //login : 사용자 인증 다시 수행, none : 자동 로그인
+      })
+    }
+
+    //인가 코드 파라미터 받기
+    //URLSearchParams = URL쿼리 문자열을 대상으로 작업할 수 있는 유틸리티 메서드
+    //window.location.search = ?뒤에 붙는 문자열(URL쿼리) 검색
+    const urlParams = new URLSearchParams(window.location.search)
+    //urlParams객체에서 code프로퍼티 값을 codetext변수에 할당
+    const codetext = urlParams.get("code")
+    if (codetext) {//codetext가 있으면 실행
+      document.getElementById("token-result").innerText = `인가 코드 : ${codetext}`
+
+      //fetch API로 인증(POST방식)
+      fetch("https://kauth.kakao.com/oauth/token", {
+        method: "POST",
+        headers: {
+          //x-www-form-urlencoded는 html form을 통한 post전송방식 중 가장 기본이 되는 content-type
+          "Content-type": "application/x-www-form-urlencoded;charset=utf-8"
+        },
+        //HTTP 요청 본문을 작성
+        body: new URLSearchParams({//URL쿼리 문자열을 쉽게 생성하고 처리할 수 있는 객체
+          grant_type: "authorization_code",//OAuth 2.0에서 액세스 토큰을 요청할 때 사용하는 인증 방식(authorization_code = 인가코드를 사용한 인증 방식)
+          client_id: "7e4755e07a170ecbbbb098a028fd315c",//앱 키(고유 식별자)
+          redirect_uri: "http://127.0.0.1:5500/kakao.html",//인가 코드를 발급하고 나서 이를 전달할 URI
+          code: codetext,//앞서 인증 과정에서 얻은 인가 코드(클라이언트 애플리케이션이 액세스 토큰을 요청할때 사용)
+        })
+      })
+        .then((res) => res.json())//fetch문이 실행되고 반환값을 json형식으로 리턴
+        .then((data) => {
+          //반환된 res를 data로 받고 access_token을 추출하여 setAccessToken메서드를 사용하여 받은 액세스 토큰을 설정
+          Kakao.Auth.setAccessToken(data.access_token)
+          //api-btn이 표시되도록 속성변경
+          document.querySelector(".api-btn").style.visibility = 'visible';
+        })
+        .catch((err) => {//오류 처리
+          console.error(err)
+        })
+    }
+
+
+    //Api호출하기 버튼을 클릭하면 requestUserInfo()함수 호출
+    document.querySelector(".api-btn").addEventListener("click", () => requestUserInfo())
+
+    //사용자 정보 표시
+    function requestUserInfo() {
+      Kakao.API.request({
+        url: '/v2/user/me', //카카오 사용자 정보 API를 호출하는 URL
+      })
+        .then((res) => {//요청 성공시 처리
+          alert(JSON.stringify(res)) //받은 응답을 JSON형식에서 문자열화하여 알림 표시
+        }).catch((err) => {//요청 실패시 처리
+          alert(JSON.stringify(err))
+        })
+    }
+
+    //로그아웃 버튼 클릭시 호출되는 함수
+    function kakaoLogout() {
+      Kakao.Auth.logout()
+        .then(() => {
+          //URL메서드 = URL의 각 구성요소를 쉽게 읽고 쓸 수 있는 속성을 제공
+          const url = new URL(window.location.href);//window.location.href = 전체 URL을 포함하는 문자열을 반환
+          //URL에서 code값을 제거
+          url.searchParams.delete('code');
+
+          //현재 history를 수정해 변수로 전달된 url로 대체됩니다
+          //두번째 인자는 title로 대부분의 브라우저에서 무시하고 있습니다. 빈 문자열을 전달하면 나중에 메소드가 변하더라도 안전합니다.
+          window.history.replaceState({}, "", url)
+
+          //경고창으로 로그아웃 되었다는 문자를 띄움
+          alert("logout ok " + Kakao.Auth.getAccessToken())
+          //새로고침
+          window.location.reload();
+        })
+        .catch(() => {//오류 처리
+          alert("Not logged in")
+        })
+    }
+  </script>
+</body>
+
+</html>

@@ -193,6 +193,7 @@ function moveReview(n) {
     btn.classList.toggle("active", idx === current);
   });
 }
+
 // === 6. 상품 목록 가져오기(각카테고리) ===
 window.addEventListener('load', function () {
   // 상품 목록을 가져오기

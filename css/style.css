@@ -228,7 +228,7 @@ nav>ul>li>a:hover {
 .main-next {
   right: 10px;
 }
-
+/*1초회원가입 애니메이션*/
 @keyframes floatUpDown {
   0% {
     transform: translateY(0);
@@ -958,7 +958,6 @@ nav>ul>li>a:hover {
   border-radius: 0 0 0 999px;
   box-shadow: 5px 5px 5px 1px rgba(197, 225, 241, 0.164);  
   
-  
 }
 
 /*footer 섹션*/
@@ -969,9 +968,7 @@ nav>ul>li>a:hover {
   padding: 50px 20px;
   background-color: #EBF5FC;
   margin: 0 auto;
-  box-sizing: border-box;  
-  
-   
+  box-sizing: border-box;   
   
 }
 
@@ -1125,6 +1122,63 @@ nav>ul>li>a:hover {
   color: #0072c6;
 }
 
+/*evnet page*/
+.event-page {
+  min-width:1440px;
+  width: 100%;    
+  padding: 50px 20px;
+  
+  margin: 0 auto;
+  box-sizing: border-box;  
+}
+.event-page > h2 {
+  margin: 100px 0 100px 0;
+  text-align: center;
+  font-weight: 800;
+  font-size: 35px;
+}
+.event-page p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.event-tab {
+  min-width: 1440px;
+  width: 100px;
+  margin: auto;
+}
+.event-tab hr {
+  margin-bottom: 100px;  
+}
+.notice-event {
+  display: flex;
+  justify-content: space-between;
+  
+}
+.event-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;  
+}
+.event-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.event-card h2 {
+  font-size: 16px;
+  font-weight: 500;  
+}
+.event-card h3 {
+  font-size: 14px;
+  color: #555;
+  font-weight: 500; 
+  margin-top: 15px;
+}
+
 /* cursor-effect */
 .cursor_effect {
   width: 3rem;
@@ -1134,6 +1188,8 @@ nav>ul>li>a:hover {
   pointer-events: none;
   /*해당 요소가 클릭되지 않도록*/
   z-index: 9999;
+  top: 0;
+  left: 0;
   /*다른요소 보다 위에 위치해 있어야 하므로 설정*/
   /* 커서 이펙트가 마우스커서를 쫓아올때 자연스러운 애니메이션 효과를 주기위해 transition의 
   가속도를cubic-bezier로 설정 */
