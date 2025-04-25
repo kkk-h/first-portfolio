@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>강하나 포트폴리오</title>
-  <link rel="stylesheet" href="/css/cream.css"> 
+  <link rel="stylesheet" href="/css/cream.css">
   <script src="https://kit.fontawesome.com/6b628def30.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -109,9 +109,36 @@
       <div class="logo"><a href="index.html"><img src="./ima/one_logo-g.png"></a></div>
       <!-- 아이콘 및 1초 회원가입 버튼 -->
       <div class="header-icons">
-        <i class="fas fa-search"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <!-- ✅ 검색 레이어 -->
+        <div id="search-layer" class="search-layer">
+          <div class="search-inner">
+            <!-- 닫기 버튼 -->
+            <button id="search-close" class="search-close-btn">
+              <i class="fas fa-times"></i>
+            </button>
+            <!-- 검색창 -->
+            <input type="text" placeholder="검색어를 입력하세요..." autofocus />
+            <!-- 돋보기 아이콘 버튼 -->
+            <button type="submit" class="search-submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- 인기 검색어 (선택) -->
+            <div class="popular-keywords">
+              <span>#수분광·톤업선크림</span>
+              <span>#3일_미백크림</span>
+              <span>#순딩톤업크림</span>
+              <span>#철벽보습_크림앰플</span>
+            </div>
+          </div>
+        </div>
+
         <i class="fas fa-user user-icon"></i>
-        <i class="fas fa-shopping-cart"></i>
+        <div class="cart-icon-wrapper">
+          <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+          <span id="wishlist-count" class="wishlist-count">0</span>
+        </div>
+
         <i class="fas fa-globe"></i>
         <a href="kakao.html" class="signup-btn">1초 회원가입</a>
       </div>
@@ -124,8 +151,9 @@
       <!-- 전제품 (hover 없음) -->
       <li class="cate-item hover-item">
         <div class="img-box">
-          <img src="ima/cate01.jpg" class="static-img">
-          <img src="./ima/cate01_hover.png" class="hover-img">
+          <a href="all.html">
+            <img src="ima/cate01.jpg" class="static-img">
+            <img src="./ima/cate01_hover.png" class="hover-img"></a>
         </div>
         <p>전 제품</p>
       </li>
@@ -153,38 +181,38 @@
         <p>앰플·세럼</p>
       </li>
 
-<!-- 크림 -->
+      <!-- 크림 -->
       <li class="cate-item hover-item cream-hover">
         <div class="img-box">
           <a href="cream.html">
-          <img src="ima/cate04.jpg" class="static-img">
-          <img
-            src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGJkdHE2Y2xwYnFsanBxa3FuNjlwbXQ3a3ViMDI3NzNrOWRscnRieSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0NwQiTooHUjYZXtm/giphy.gif"
-            class="hover-img"></a>
+            <img src="ima/cate04.jpg" class="static-img">
+            <img
+              src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGJkdHE2Y2xwYnFsanBxa3FuNjlwbXQ3a3ViMDI3NzNrOWRscnRieSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0NwQiTooHUjYZXtm/giphy.gif"
+              class="hover-img"></a>
         </div>
         <p>크림</p>
       </li>
 
       <!-- 클렌징·팩 -->
-      <li class="cate-item hover-item">
+      <li class="cate-item hover-item clean-hover">
         <div class="img-box">
           <a href="cleansing.html">
-          <img src="ima/cate05.jpg" class="static-img">
-          <img
-            src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXUwNzdoaHNsc3d0aWxmc3RkcHVmYjdmYWtoM2ZrY2sxMzlia3kzMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vXA1NdXCWBKcBoU79j/giphy.gif"
-            class="hover-img"></a>
+            <img src="ima/cate05.jpg" class="static-img">
+            <img
+              src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXUwNzdoaHNsc3d0aWxmc3RkcHVmYjdmYWtoM2ZrY2sxMzlia3kzMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vXA1NdXCWBKcBoU79j/giphy.gif"
+              class="hover-img"></a>
         </div>
         <p>클렌징·팩</p>
       </li>
 
       <!-- 선 베이스 -->
-      <li class="cate-item hover-item">
+      <li class="cate-item hover-item sun-hover">
         <div class="img-box">
           <a href="sun.html">
-          <img src="ima/cate06.jpg" class="static-img">
-          <img
-            src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXNya2R3MG90NHR4YmM3dmE2NHNoczFzbnozNGN5bWp4NnNrendyaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/if8vq2HZycsjaobHSW/giphy.gif"
-            class="hover-img"></a>
+            <img src="ima/cate06.jpg" class="static-img">
+            <img
+              src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXNya2R3MG90NHR4YmM3dmE2NHNoczFzbnozNGN5bWp4NnNrendyaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/if8vq2HZycsjaobHSW/giphy.gif"
+              class="hover-img"></a>
         </div>
         <p>선 베이스</p>
       </li>
@@ -193,8 +221,8 @@
       <li class="cate-item hover-item">
         <div class="img-box">
           <a href="set.html">
-          <img src="ima/cate07.jpg" class="static-img">
-          <img src="ima/cate06_hover.png" class="hover-img"></a>
+            <img src="ima/cate07.jpg" class="static-img">
+            <img src="ima/cate06_hover.png" class="hover-img"></a>
         </div>
         <p>세트 상품</p>
       </li>
@@ -232,204 +260,244 @@
     </div>
   </div>
 
-<!--product list-->
+  <!--product list-->
 
-<div class="product-wrapper">
-  <p id="total-products">총 <span id="product-count">0</span>개의 상품</p>
+  <div class="product-wrapper">
+    <p id="total-products">총 <span id="product-count">0</span>개의 상품</p>
 
 
-  <ul class="product-list" id="productList">
+    <ul class="product-list" id="productList">
 
-<!-- 상품 카드 -->
-  <li class="product-item">
-    <div class="image-box">
-      <a href="#">
-        <img src="ima/md_02.png" alt="미라클 화이트 크림">
-      </a>
-      <div class="hover-icons">
-        <i class="fa-regular fa-heart"></i>
-        <span class="icon-divider"></span>
-        <i class="lucide-icon" data-lucide="shopping-cart"></i>
-      </div>
-    </div>
-    <div class="item-info">
-      <div class="item-name">미라클 화이트 크림</div>
-      <div class="item-desc">잡티부터 숨은 흔적까지 3일 개선</div>
-      <div class="item-price">
-        <span class="discount">20%</span> 22,400원 <s>28,000원</s>
-      </div>
-    </div>
-  </li>
+      <!-- 상품 카드 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/md_02.png" alt="미라클 화이트 크림">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">미라클 화이트 크림</div>
+          <div class="item-desc">잡티부터 숨은 흔적까지 3일 개선</div>
+          <div class="item-price">
+            <span class="discount">20%</span> 22,400원 <s>28,000원</s>
+          </div>
+        </div>
+      </li>
 
-  <!-- 상품 추가하면 li만 복사 -->
-  <li class="product-item">
-    <div class="image-box">
-      <a href="#">
-        <img src="ima/cream01.png" alt="하이드라 앰플 크림 나노 플러스">
-      </a>
-      <div class="hover-icons">
-        <i class="fa-regular fa-heart"></i>
-        <span class="icon-divider"></span>
-        <i class="lucide-icon" data-lucide="shopping-cart"></i>
-      </div>
-    </div>
-    <div class="item-info">
-      <div class="item-name">하이드라 앰플 크림 나노 플러스</div>
-      <div class="item-desc">촉촉 물터지는 수분밤 나노 수분 앰플 크림</div>
-      <div class="item-price">
-        <span class="discount">20%</span> 23,200원 <s>29,000원</s>
-      </div>
-    </div>
-  </li>
-  <!-- 상품 추가하면 li만 복사 -->
-  <li class="product-item">
-    <div class="image-box">
-      <a href="#">
-        <img src="ima/cream02.png" alt="비건 하이드라 앰플 수딩크림 더블기획">
-      </a>
-      <div class="hover-icons">
-        <i class="fa-regular fa-heart"></i>
-        <span class="icon-divider"></span>
-        <i class="lucide-icon" data-lucide="shopping-cart"></i>
-      </div>
-    </div>
-    <div class="item-info">
-      <div class="item-name">비건 하이드라 앰플 수딩크림 더블기획</div>
-      <div class="item-desc">흡수빠른 비건 하이드라 수분크림</div>
-      <div class="item-price">
-        <span class="discount">20%</span> 22,400원 <s>28,000원</s>
-      </div>
-    </div>
-  </li>
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/cream01.png" alt="하이드라 앰플 크림 나노 플러스">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">하이드라 앰플 크림 나노 플러스</div>
+          <div class="item-desc">촉촉 물터지는 수분밤 나노 수분 앰플 크림</div>
+          <div class="item-price">
+            <span class="discount">20%</span> 23,200원 <s>29,000원</s>
+          </div>
+        </div>
+      </li>
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/cream08.png" alt="앰플인 코어 프리미엄 아이크림">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">앰플인 코어 프리미엄 아이크림</div>
+          <div class="item-desc">6가지 콜라겐의 강력한 탄력효과</div>
+          <div class="item-price">
+            <span class="discount">20%</span> 23,200원 <s>24,000원</s>
+          </div>
+        </div>
+      </li>
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/cream02.png" alt="비건 하이드라 앰플 수딩크림 더블기획">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">비건 하이드라 앰플 수딩크림 더블기획</div>
+          <div class="item-desc">흡수빠른 비건 하이드라 수분크림</div>
+          <div class="item-price">
+            <span class="discount">20%</span>19,200원 <s>28,000원</s>
+          </div>
+        </div>
+      </li>
 
-  <!-- 상품 추가하면 li만 복사 -->
-  <li class="product-item">
-    <div class="image-box">
-      <a href="#">
-        <img src="ima/cream03.png" alt="비건 콜라겐 앰플 아이앤페이스 크림">
-      </a>
-      <div class="hover-icons">
-        <i class="fa-regular fa-heart"></i>
-        <span class="icon-divider"></span>
-        <i class="lucide-icon" data-lucide="shopping-cart"></i>
-      </div>
-    </div>
-    <div class="item-info">
-      <div class="item-name">비건 콜라겐 앰플 아이앤페이스 크림</div>
-      <div class="item-desc">아이크림의 영양을 얼굴 전체로 쫀쫀하게</div>
-      <div class="item-price">
-        <span class="discount">30%</span> 26,600원 <s>38,000원</s>
-      </div>
-    </div>
-  </li>
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/cream09.png" alt="비건 콜라겐 크림">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">비건 콜라겐 크림</div>
+          <div class="item-desc">피부 탄력과 보습 영양을 선사해주는 크림</div>
+          <div class="item-price">
+            <span class="discount">20%</span> 15,400원 <s>19,250원</s>
+          </div>
+        </div>
+      </li>
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/cream03.png" alt="비건 콜라겐 앰플 아이앤페이스 크림">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">비건 콜라겐 앰플 아이앤페이스 크림</div>
+          <div class="item-desc">아이크림의 영양을 얼굴 전체로 쫀쫀하게</div>
+          <div class="item-price">
+            <span class="discount">30%</span> 26,600원 <s>38,000원</s>
+          </div>
+        </div>
+      </li>
 
-  <!-- 상품 추가하면 li만 복사 -->
-  <li class="product-item">
-    <div class="image-box">
-      <a href="#">
-        <img src="ima/cream04.png" alt="더마틱 시카 크림">
-      </a>
-      <div class="hover-icons">
-        <i class="fa-regular fa-heart"></i>
-        <span class="icon-divider"></span>
-        <i class="lucide-icon" data-lucide="shopping-cart"></i>
-      </div>
-    </div>
-    <div class="item-info">
-      <div class="item-name">더마틱 시카 크림</div>
-      <div class="item-desc">민감 피부 진정 크림</div>
-      <div class="item-price">
-        <span class="discount">30%</span> 21,000원 <s>30,000원</s>
-      </div>
-    </div>
-  </li>
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/cream04.png" alt="더마틱 시카 크림">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">더마틱 시카 크림</div>
+          <div class="item-desc">민감 피부 진정 크림</div>
+          <div class="item-price">
+            <span class="discount">30%</span> 21,000원 <s>30,000원</s>
+          </div>
+        </div>
+      </li>
 
-  <!-- 상품 추가하면 li만 복사 -->
-  <li class="product-item">
-    <div class="image-box">
-      <a href="#">
-        <img src="ima/cream05.png" alt="PH 캄 아이스 크림">
-      </a>
-      <div class="hover-icons">
-        <i class="fa-regular fa-heart"></i>
-        <span class="icon-divider"></span>
-        <i class="lucide-icon" data-lucide="shopping-cart"></i>
-      </div>
-    </div>
-    <div class="item-info">
-      <div class="item-name">PH 캄 아이스 크림</div>
-      <div class="item-desc">약산성 진정크림으로 토닥토닥</div>
-      <div class="item-price">
-        <span class="discount">30%</span> 18,200원 <s>26,000원</s>
-      </div>
-    </div>
-  </li>
-  <!-- 상품 추가하면 li만 복사 -->
-  <li class="product-item">
-    <div class="image-box">
-      <a href="#">
-        <img src="ima/cream06.png" alt="파인 트리트먼트 크림">
-      </a>
-      <div class="hover-icons">
-        <i class="fa-regular fa-heart"></i>
-        <span class="icon-divider"></span>
-        <i class="lucide-icon" data-lucide="shopping-cart"></i>
-      </div>
-    </div>
-    <div class="item-info">
-      <div class="item-name">파인 트리트먼트 크림</div>
-      <div class="item-desc">7중 모공개선 파인샷 모공크림</div>
-      <div class="item-price">
-        <span class="discount">30%</span> 18,900원 <s>27,000원</s>
-      </div>
-    </div>
-  </li>
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/cream05.png" alt="PH 캄 아이스 크림">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">PH 캄 아이스 크림</div>
+          <div class="item-desc">약산성 진정크림으로 토닥토닥</div>
+          <div class="item-price">
+            <span class="discount">30%</span> 18,200원 <s>26,000원</s>
+          </div>
+        </div>
+      </li>
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/cream06.png" alt="파인 트리트먼트 크림">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">파인 트리트먼트 크림</div>
+          <div class="item-desc">7중 모공개선 파인샷 모공크림</div>
+          <div class="item-price">
+            <span class="discount">30%</span> 18,900원 <s>27,000원</s>
+          </div>
+        </div>
+      </li>
 
-  <!-- 상품 추가하면 li만 복사 -->
-  <li class="product-item">
-    <div class="image-box">
-      <a href="#">
-        <img src="ima/b_item1.png" alt="하이드라 앰플 크림">
-      </a>
-      <div class="hover-icons">
-        <i class="fa-regular fa-heart"></i>
-        <span class="icon-divider"></span>
-        <i class="lucide-icon" data-lucide="shopping-cart"></i>
-      </div>
-    </div>
-    <div class="item-info">
-      <div class="item-name">하이드라 앰플 크림</div>
-      <div class="item-desc">수분 채움부터 잠금까지 완성!</div>
-      <div class="item-price">
-        <span class="discount">30%</span> 19,600원 <s>28,000원</s>
-      </div>
-    </div>
-  </li>
-  <!-- 상품 추가하면 li만 복사 -->
-  <li class="product-item">
-    <div class="image-box">
-      <a href="#">
-        <img src="ima/cream07.png" alt="라이스 레디안스 크림">
-      </a>
-      <div class="hover-icons">
-        <i class="fa-regular fa-heart"></i>
-        <span class="icon-divider"></span>
-        <i class="lucide-icon" data-lucide="shopping-cart"></i>
-      </div>
-    </div>
-    <div class="item-info">
-      <div class="item-name">라이스 레디안스 크림</div>
-      <div class="item-desc">쌀겨수 미백+영양 크림</div>
-      <div class="item-price">
-        <span class="discount">30%</span> 21,000원 <s>30,000원</s>
-      </div>
-    </div>
-  </li>
-  
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/b_item1.png" alt="하이드라 앰플 크림">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">하이드라 앰플 크림</div>
+          <div class="item-desc">수분 채움부터 잠금까지 완성!</div>
+          <div class="item-price">
+            <span class="discount">30%</span> 19,600원 <s>28,000원</s>
+          </div>
+        </div>
+      </li>
+      <!-- 상품 추가하면 li만 복사 -->
+      <li class="product-item">
+        <div class="image-box">
+          <a href="#">
+            <img src="ima/cream07.png" alt="라이스 레디안스 크림">
+          </a>
+          <div class="hover-icons">
+            <i class="fa-regular fa-heart"></i>
+            <span class="icon-divider"></span>
+            <i class="lucide-icon" data-lucide="shopping-cart"></i>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-name">라이스 레디안스 크림</div>
+          <div class="item-desc">쌀겨수 미백+영양 크림</div>
+          <div class="item-price">
+            <span class="discount">30%</span> 21,000원 <s>30,000원</s>
+          </div>
+        </div>
+      </li>
 
-</ul>
-<div class="pagination" id="pagination"></div>
-</div>
+
+    </ul>
+    <div class="pagination" id="pagination"></div>
+  </div>
 
   <!-- 곡선용 wrap -->
   <div class="footer-curve"></div>

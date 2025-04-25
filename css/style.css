@@ -242,6 +242,78 @@ nav>ul>li>a:hover {
     transform: translateY(0);
   }
 }
+/* 기본적으로 숨김 */
+.search-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.97);
+  overflow: hidden;
+  transition: height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  z-index: 999;
+}
+
+/* 열릴 때 클래스 */
+.search-layer.active {
+  height: 300px; /* 원하는 높이 조절 가능 */
+  opacity: 1;
+}
+
+/* 내부 검색창 박스 */
+.search-inner {
+  max-width: 700px;
+  margin: 80px auto 0;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* 검색 입력창 */
+.search-inner input {
+  width: 70%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  background: transparent;
+}
+
+
+/* 닫기 버튼 */
+.search-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+/* 돋보기 아이콘 버튼 */
+.search-submit {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 10px;
+  color: #333;
+}
+
+/* 인기 검색어 스타일 */
+.popular-keywords {
+  margin-top: 20px;
+  color: #555;
+  font-size: 14px;
+}
+
+.popular-keywords span {
+  margin-right: 10px;
+}
+
 
 .user-icon {
   position: relative;
@@ -265,6 +337,46 @@ nav>ul>li>a:hover {
   text-align: center;
   animation: floatUpDown 1s ease-in-out infinite;
 
+}
+/*쇼핑카드 찜수 노출*/
+.wishlist-count {
+  width: 15px;
+  height: 15px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(201, 240, 255, 0.685);
+  color: rgb(110, 110, 110);
+  display: flex;            
+  justify-content: center;   
+  align-items: center; 
+  border-radius: 10px;
+  position: absolute;
+  top: -10px;
+  left: 17px;
+}
+.cart-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center; /* Center the items vertically */
+}
+#wishlist-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 배경 흐리게 */
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#wishlist-items {
+  background-color: white;
+  padding: 20px;
+  max-width: 500px;
+  max-height: 80%;
+  overflow-y: auto;
 }
 
 /* 말풍선 아래 삼각형 */
@@ -800,15 +912,14 @@ nav>ul>li>a:hover {
 }
 
 .review-container {
-  width: 1440px;
+
+  min-width: 1440px;
   width: 100%;
   max-height: 900px;
   height: 100%;
   background-color: #fff;  
-  margin: 80px auto;
-  padding-bottom: 30px;
-  
-  
+  margin: 0 auto;
+  padding-bottom: 30px;  
 
 }
 
@@ -830,7 +941,6 @@ nav>ul>li>a:hover {
   align-items: center;
   margin: auto;
   gap: 40px;
-
 
 }
 

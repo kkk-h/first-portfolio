@@ -26,6 +26,125 @@ document.addEventListener("DOMContentLoaded", function () {
     safeQuery(".main-next")?.addEventListener("click", () => move(1));
     setInterval(() => move(1), 3000);
   })();
+  //검색섹션
+  const searchIcon = document.getElementById('search-icon');
+  const searchLayer = document.getElementById('search-layer');
+  const searchClose = document.getElementById('search-close');
+
+  searchIcon.addEventListener('click', () => {
+    searchLayer.classList.add('active');
+  });
+
+  searchClose.addEventListener('click', () => {
+    searchLayer.classList.remove('active');
+  });
+
+  // ESC 키로 닫기
+  window.addEventListener('keydown', function (e) {
+    if (e.key === "Escape") {
+      searchLayer.classList.remove('active');
+    }
+  });
+  /*찜수 갯수 표시 섹션*/
+
+  let cartCount = [];
+ // 찜하기 버튼 클릭 시 처리
+ document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('fa-heart')) {
+    const icon = e.target;
+    const productCard = icon.closest('li'); //
+    // console.log(productCard)
+    if (!productCard) return;
+
+    const product = {
+      id: productCard.querySelector('img')?.src || '', 
+      title: productCard.querySelector('.item-name')?.textContent || '',
+      image: productCard.querySelector('img')?.src || ''
+    };
+
+    // cartCount 배열에 현재 상품이 이미 있는지 확인
+    const index = cartCount.findIndex(item => item.id === product.id);
+    const isWished = index !== -1;
+
+    if (!isWished) { //찜 추가
+      icon.classList.remove('fa-regular');
+      icon.classList.add('fa-solid');
+      cartCount.push(product)
+    } else { //찜 제거
+      icon.classList.remove('fa-solid');
+      icon.classList.add('fa-regular');
+      cartCount.splice(index, 1); // 배열에서 해당 아이템 제거
+    }
+    
+    //찜한 개수 업데이트
+    document.getElementById('wishlist-count').textContent = cartCount.length;
+  }
+});
+
+// 페이지 로드 시 초기 처리
+document.addEventListener("DOMContentLoaded", function () {
+  const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+
+  // 하트 아이콘 상태 복원
+  wishlistItems.forEach(product => {
+    const card = document.querySelector(`.product-card[data-id="${product.id}"]`);
+    if (card) {
+      const heartIcon = card.querySelector('.fa-heart');
+      if (heartIcon) {
+        heartIcon.classList.remove('fa-regular');
+        heartIcon.classList.add('fa-solid');
+      }
+    }
+  });
+
+  // 찜 개수 표시
+  const countEl = document.getElementById('wishlist-count');
+  if (countEl) countEl.textContent = wishlistItems.length;
+
+  // 찜 목록 페이지 렌더링 (있을 경우에만 실행)
+  const wishlistContainer = document.getElementById('wishlist-items');
+  if (wishlistContainer) {
+    if (wishlistItems.length === 0) {
+      wishlistContainer.innerHTML = '<p>찜한 상품이 없습니다.</p>';
+    } else {
+      wishlistItems.forEach(item => {
+        const productEl = document.createElement('div');
+        productEl.className = 'wishlist-item';
+        productEl.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" width="100">
+          <p>${item.title}</p>
+        `;
+        wishlistContainer.appendChild(productEl);
+      });
+    }
+  }
+});
+
+
+ 
+  //장바구니 섹션
+  
+  function renderWishlistItems() {
+    const wishlistContainer = document.getElementById('wishlist-items');
+    const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+  
+    wishlistContainer.innerHTML = ''; // 기존 내용 비움
+  
+    if (wishlistItems.length === 0) {
+      wishlistContainer.innerHTML = '<p>찜한 상품이 없습니다.</p>';
+    } else {
+      wishlistItems.forEach(item => {
+        const productEl = document.createElement('div');
+        productEl.className = 'wishlist-item';
+        productEl.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" width="100">
+          <p>${item.title}</p>
+        `;
+        wishlistContainer.appendChild(productEl);
+      });
+    }
+  }
+
 
   // === 2. MD's Pick 슬라이더 ===
   (function initMdSlider() {

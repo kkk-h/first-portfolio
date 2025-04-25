@@ -109,9 +109,35 @@
       <div class="logo"><a href="index.html"><img src="./ima/one_logo-g.png"></a></div>
       <!-- 아이콘 및 1초 회원가입 버튼 -->
       <div class="header-icons">
-        <i class="fas fa-search"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <!-- ✅ 검색 레이어 -->
+        <div id="search-layer" class="search-layer">
+          <div class="search-inner">
+            <!-- 닫기 버튼 -->
+            <button id="search-close" class="search-close-btn">
+              <i class="fas fa-times"></i>
+            </button>
+            <!-- 검색창 -->
+            <input type="text" placeholder="검색어를 입력하세요..." autofocus />
+            <!-- 돋보기 아이콘 버튼 -->
+            <button type="submit" class="search-submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- 인기 검색어 (선택) -->
+            <div class="popular-keywords">
+              <span>#수분광·톤업선크림</span>
+              <span>#3일_미백크림</span>
+              <span>#순딩톤업크림</span>
+              <span>#철벽보습_크림앰플</span>
+            </div>
+          </div>
+        </div>
+        
         <i class="fas fa-user user-icon"></i>
-        <i class="fas fa-shopping-cart"></i>
+        <div class="cart-icon-wrapper">
+          <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+          <span id="wishlist-count" class="wishlist-count">0</span>
+        </div>
         <i class="fas fa-globe"></i>
         <a href="kakao.html" class="signup-btn">1초 회원가입</a>
       </div>
@@ -124,8 +150,9 @@
       <!-- 전제품 (hover 없음) -->
       <li class="cate-item hover-item">
         <div class="img-box">
-          <img src="ima/cate01.jpg" class="static-img">
-          <img src="./ima/cate01_hover.png" class="hover-img">
+          <a href="all.html">
+            <img src="ima/cate01.jpg" class="static-img">
+            <img src="./ima/cate01_hover.png" class="hover-img"></a>
         </div>
         <p>전 제품</p>
       </li>
@@ -178,7 +205,7 @@
       </li>
 
       <!-- 선 베이스 -->
-      <li class="cate-item hover-item">
+      <li class="cate-item hover-item sun-hover">
         <div class="img-box">
           <a href="sun.html">
           <img src="ima/cate06.jpg" class="static-img">

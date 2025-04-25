@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강하나 포트폴리오</title>
+  <script src="https://kit.fontawesome.com/6b628def30.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+
+
+  <style>
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+      font-weight: 800;
+      font-style: normal;
+    }
+  </style>
+  <link href="css/cart.css" rel="stylesheet">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <!-- cursor effect -->
+  <div class="cursor_effect">
+    <div class="cursor_wrap">
+      <div class="cursor_icon"></div>
+    </div>
+  </div>
+  <!-- 헤더 & 네비게이션 -->
+  <div class="header">
+    <div class="container">
+      <nav>
+        <ul>
+          <li class="has-submenu">
+            <a href="#">PRODUCT</a>
+            <ul class="submenu">
+              <li class="submenu-title"><strong>PRODUCT</strong></li>
+              <div class="sub-category">
+                <a class="subTitle" href="#">유형별</a>
+                <ul>
+                  <li><a href="torner.html">토너·로션</a></li>
+                  <li><a href="serum.html">앰플·세럼</a></li>
+                  <li><a href="cream.html">크림</a></li>
+                  <li><a href="cleansing.html">클렌징·팩</a></li>
+                  <li><a href="sun.html">선·베이스</a></li>
+                  <li><a href="set.html">세트</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-category">
+                <a class="subTitle" href="#">라인별</a>
+                <ul>
+                  <li><a href="#">톤업</a></li>
+                  <li><a href="#">하이드라</a></li>
+                  <li><a href="#">라이스</a></li>
+                  <li><a href="#">콜라겐</a></li>
+                  <li><a href="#">PH캄</a></li>
+                  <li><a href="#">더마틱 시카</a></li>
+                  <li><a href="#">미라클 화이트</a></li>
+                </ul>
+              </div>
+
+              <div class="sub-category">
+                <a class="subTitle" href="#">피부 고민별</a>
+                <ul>
+                  <li><a href="#">수분·보습</a></li>
+                  <li><a href="#">미백</a></li>
+                  <li><a href="#">탄력</a></li>
+                  <li><a href="#">민감·진정</a></li>
+                  <li><a href="#">각질·모공</a></li>
+                  <li><a href="#">트러블</a></li>
+
+                </ul>
+          </li>
+        </ul>
+        <li><a href="event.html">EVENT</a></li>
+        <li><a href="#">BEST</a></li>
+        <li><a href="brand.html">BRAND</a></li>
+        <li><a href="#">REVIEW</a></li>
+        <li><a href="board.html">CS</a></li>
+
+      </nav>
+      <!-- 서브메뉴가 포함된 PRODUCT 닫힘 -->
+      <div class="logo"><a href="index.html"><img src="./ima/one_logo-g.png"></a></div>
+      <!-- 아이콘 및 1초 회원가입 버튼 -->
+      <div class="header-icons">
+        <i class="fas fa-search" id="search-icon"></i>
+        <!-- ✅ 검색 레이어 -->
+        <div id="search-layer" class="search-layer">
+          <div class="search-inner">
+            <!-- 닫기 버튼 -->
+            <button id="search-close" class="search-close-btn">
+              <i class="fas fa-times"></i>
+            </button>
+            <!-- 검색창 -->
+            <input type="text" placeholder="검색어를 입력하세요..." autofocus />
+            <!-- 돋보기 아이콘 버튼 -->
+            <button type="submit" class="search-submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- 인기 검색어 (선택) -->
+            <div class="popular-keywords">
+              <span>#수분광·톤업선크림</span>
+              <span>#3일_미백크림</span>
+              <span>#순딩톤업크림</span>
+              <span>#철벽보습_크림앰플</span>
+            </div>
+          </div>
+        </div>
+        
+        <i class="fas fa-user user-icon"></i>
+        <div class="cart-icon-wrapper">
+          <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+          <span id="wishlist-count" class="wishlist-count">0</span>
+        </div>
+        <i class="fas fa-globe"></i>
+        <a href="kakao.html" class="signup-btn">1초 회원가입</a>
+      </div>
+    </div>
+  </div>
+
+  <!--CART PAGE-->
+  <div class="cart-page">
+    <h2>장바구니</h2>
+    
+  
+    <div class="cart-status">
+      <div class="delivery-tab">
+        <strong class="cart-tab-active">배송상품 (0)</strong> 
+        
+      </div>
+      <hr><br><br><br><br>
+      <p>장바구니가 비어 있습니다.</p>
+      
+
+      <div class="cart-buttons">
+        <div class="left-buttons">
+        <button class="btn-black">전체상품주문</button>
+        <button class="btn-white">선택상품주문</button>
+        </div>
+        <button class="btn-blue">쇼핑계속하기</button>
+      </div>
+
+      
+   
+  
+    <div class="cart-guide">
+      <h3>이용안내</h3>
+      <hr>
+      <div class="guide-box">
+        <h4>장바구니 이용안내</h4>
+        <ol>
+          <li>해외배송 상품과 국내배송 상품은 함께 결제할 수 없으며 장바구니 별도 결제해 주시기 바랍니다.</li>
+          <li>해외배송 가능 상품인 경우 국내배송 장바구니에 담았다면 해외배송 장바구니 이동하여 결제하실 수 있습니다.</li>
+          <li>선택하신 상품의 수량을 변경하시려면 수량란에 직접 입력하시면 됩니다.</li>
+          <li>상품주문하기 버튼을 누르시면 선택한 상품을 계속해서 주문하실 수 있습니다.</li>
+          <li>장바구니와 관심상품을 이용하여 원하는 상품만 주문하거나 관심상품으로 등록하실 수 있습니다.</li>
+          <li>파일첨부 옵션은 동일상품을 장바구니에 추가할 경우 마지막에 업로드 한 파일로 교체됩니다.</li>
+        </ol>
+  
+        <h4>무이자할부 이용안내</h4>
+        <ol>
+          <li>상품별 무이자할부 혜택을 받으시려면 무이자할부 상품만 선택하여 [주문하기] 버튼을 눌러 주문/결제 하시면 됩니다.</li>
+          <li>[전체 상품 주문] 버튼을 누르시면 장바구니에 담긴 모든 상품에 대한 주문/결제가 이루어집니다.</li>
+          <li>단, 전체 상품을 주문/결제하실 경우, 상품별 무이자할부 혜택은 받을 수 없습니다.</li>
+          <li>무이자할부 상품은 장바구니에서 별도 무이자할부 상품 영역에 표시되어, 무이자할부 상품 기준으로 배송비가 표시됩니다.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <!-- 곡선용 wrap -->
+  <div class="footer-curve"></div>
+
+  <!--footer섹션-->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="./ima/one_logo.png" alt="logo">
+      </div>
+      <div class="footer-info">
+        <p class="customer-service">고객센터 <br><br><span class="big-number">070-0000-0000</span>
+        </p>
+        <p style="font-size: 12px; line-height: 20px; color: gray;">평일 AM 10:00 ~ PM 17:00 (점심 11:50 ~ 13:00) <br> 주말 및
+          공휴일 휴무</p>
+      </div>
+      <div class="footer-nav">
+        <strong class="title">주문 및 문의</strong>
+        <ul class="nav-list">
+          <li><a href="#">주문 및 문의</a></li>
+          <li><a href="#">주문조회</a></li>
+          <li><a href="#">문의하기</a></li>
+          <li><a href="#">자주 묻는 질문</a></li>
+          <li><a href="#">배송/교환/환불 안내</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <strong class="title">사이트안내</strong>
+        <ul class="nav-list">
+          <li><a href="#">이용약관</a></li>
+          <li><a href="#">개인 정보 처리 방침</a></li>
+          <li><a href="#">자주 묻는 질문</a></li>
+        </ul>
+      </div>
+      <div class="social-media">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </div>
+
+
+    <div class="footer-bottom">
+      <span style="">상호 : (주)one</span>
+      <span style="">대표 : 강하나</span>
+      <span style="">주소 : 경기 성남시 중원구 광명로 4 5층</span>
+      <span style="">사업자 번호 : 220-00-00000</span>
+      <span style="">통신판매신고 : 2025-경기성남-3333</span>
+      <span style="">홍보 및 제휴문의 one6421@hanmail.net </span>
+
+    </div>
+    <p class="copy">&copy; 2025 one. all rights reserved. Design by <span class="copy-name">강하나</span></p>
+  </footer>
+  <div id="wishlist-items"></div>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>
