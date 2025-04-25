@@ -193,6 +193,63 @@ nav>ul>li>a:hover {
     transform: translateY(0);
   }
 }
+
+.user-icon {
+  position: relative;
+}
+
+.signup-btn {
+  position: absolute;
+  top: 100%;
+  left: -8%;
+  margin-top: 18px;
+  transform: translateX(-50%);
+  background: #89C1EB;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 15px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  width: auto;
+  text-align: center;
+  animation: floatUpDown 1s ease-in-out infinite;
+}
+/*쇼핑카드 찜수 노출*/
+.wishlist-count {
+  width: 15px;
+  height: 15px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(201, 240, 255, 0.685);
+  color: rgb(110, 110, 110);
+  display: flex;            
+  justify-content: center;   
+  align-items: center; 
+  border-radius: 10px;
+  position: absolute;
+  top: -10px;
+  left: 17px;
+}
+.cart-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center; /* Center the items vertically */
+}
+
+
+/* 말풍선 아래 삼각형 */
+.signup-btn::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 49%;
+  transform: translateX(-50%);
+  border-width: 0 5px 8px 5px;
+  border-style: solid;
+  border-color: transparent transparent #89C1EB transparent;
+}
 /* 기본적으로 숨김 */
 .search-layer {
   position: fixed;
@@ -265,66 +322,6 @@ nav>ul>li>a:hover {
   margin-right: 10px;
 }
 
-
-.user-icon {
-  position: relative;
-}
-
-.signup-btn {
-  position: absolute;
-  top: 100%;
-  left: -8%;
-  margin-top: 18px;
-  transform: translateX(-50%);
-  background: #89C1EB;
-  color: white;
-  border: none;
-  padding: 6px 16px;
-  border-radius: 15px;
-  font-size: 13px;
-  cursor: pointer;
-  white-space: nowrap;
-  width: auto;
-  text-align: center;
-  animation: floatUpDown 1s ease-in-out infinite;
-}
-/*쇼핑카드 찜수 노출*/
-.wishlist-count {
-  width: 15px;
-  height: 15px;
-  font-size: 11px;
-  font-weight: 700;
-  background: rgba(201, 240, 255, 0.685);
-  color: rgb(110, 110, 110);
-  display: flex;            
-  justify-content: center;   
-  align-items: center; 
-  border-radius: 10px;
-  position: absolute;
-  top: -10px;
-  left: 17px;
-}
-.cart-icon-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center; /* Center the items vertically */
-}
-
-
-/* 말풍선 아래 삼각형 */
-.signup-btn::after {
-  content: "";
-  position: absolute;
-  top: -7px;
-  left: 49%;
-  transform: translateX(-50%);
-  border-width: 0 5px 8px 5px;
-  border-style: solid;
-  border-color: transparent transparent #89C1EB transparent;
-}
-
-
-
 /* 헤더 밑 카테고리 섹션 */
 .cateMenuWrap {
   width: 1440px;
@@ -333,7 +330,6 @@ nav>ul>li>a:hover {
   margin-top: 150px;
 
 }
-
 .cate-list {
   display: flex;
   gap: 30px;
@@ -347,6 +343,12 @@ nav>ul>li>a:hover {
   position: relative;
   text-align: center;
 }
+.cate-item p {
+  margin-top: 18px;  
+  font-size: 16px;
+  color: #171717;
+  position: relative;
+}
 
 .img-box {
   position: relative;
@@ -354,7 +356,6 @@ nav>ul>li>a:hover {
   height: 150px;
   overflow: hidden;
 }
-
 .img-box img {
   width: 100%;
   height: 100%;
@@ -364,17 +365,9 @@ nav>ul>li>a:hover {
   top: 0;
   left: 0;
 }
-
-.image-box img.largeimg {
-  width: 230px;
-  height: 400px;
-  transition: transform 0.3s ease;
-}
-
 .hover-img {
   display: none;
 }
-
 .hover-item:hover .static-img {
   display: none;
 }
@@ -383,18 +376,18 @@ nav>ul>li>a:hover {
   display: block;
 }
 
-.cate-item p {
-  margin-top: 18px;  
-  font-size: 16px;
-  color: #171717;
-  position: relative;
-}
 
-.all-hover .static-img {
+.static-img {
+  display: block;
+}
+.hover-img {
   display: none;
 }
 
-.all-hover .hover-img {
+.allhover .static-img {
+  display: none;
+}
+.allhover .hover-img {
   display: block;
 }
 
@@ -436,7 +429,8 @@ nav>ul>li>a:hover {
   flex-wrap: wrap;
   gap: 12px 25px;
   list-style: none;
-  padding: 10px 50px;   
+  padding: 10px 50px; 
+  
   margin: 0;
 }
 
@@ -448,10 +442,9 @@ nav>ul>li>a:hover {
   
   color: #666;
   white-space: nowrap;
-  cursor: pointer;  
+  cursor: pointer;
+  
 }
-
-
 
 /*product list 섹션*/
 
@@ -503,12 +496,24 @@ nav>ul>li>a:hover {
   height: 100%;
 }
 
+/* .image-box a{
+  width: 180px;
+  height: 280px;
+  display: block;
+  overflow:hidden;
+} */
+
 .image-box img {
   width: 180px;
   height: 280px;
   object-fit: contain;
+  transition: transform 0.3s ease;  
+}
+
+.image-box img.largeimg {
+  width: 300px;
+  height: 400px;
   transition: transform 0.3s ease;
-  
 }
 
 .image-box:hover img {
