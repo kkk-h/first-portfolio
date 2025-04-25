@@ -816,6 +816,7 @@ nav>ul>li>a:hover {
 .event-section {
   min-width: 1440px;
   width: 100%;
+  margin: auto;
   overflow: hidden;
 }
 
