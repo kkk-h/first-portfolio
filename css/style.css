@@ -814,6 +814,7 @@ nav>ul>li>a:hover {
 /* event 섹션 */
 /* 기본 섹션 정리 */
 .event-section {
+  min-width: 1440px;
   width: 100%;
   overflow: hidden;
 }
